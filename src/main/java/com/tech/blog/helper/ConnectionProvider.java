@@ -7,7 +7,7 @@ import java.sql.*;
 public class ConnectionProvider {
 	
 	private static Connection conn;
-	private static String url = "jdbc:mysql://localhost:3306/techblog";
+	private static String url = "jdbc:mysql://localhost:3306/happy";
 	private static String username = "root";
 	private static String password = "mysql";
 	
