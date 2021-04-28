@@ -1,4 +1,4 @@
-package com.tech.blog.servlets;
+package com.tech.blog.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +25,6 @@ public class RegisterServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		if(check==null)
 		{
-			
 			out.println("Please agree terms and conditions.");
 		}
 		else {

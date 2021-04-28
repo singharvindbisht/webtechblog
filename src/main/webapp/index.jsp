@@ -45,7 +45,7 @@
 	<div class="container-fluid p-0 m-0 mb-3">
 		<div class="jumbotron primary-background text-white">
 			<div class="container">
-				<h3>Welcome Freinds</h3>
+				<h3>Welcome Friends</h3>
 			<h3>Tech Blog</h3>
 			<p>Hello everyone this is technical blog hope you will enjoy posting here the technical knowledge</p>
 			

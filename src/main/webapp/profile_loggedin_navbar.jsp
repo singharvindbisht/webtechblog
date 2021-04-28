@@ -1,8 +1,14 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-
+<%@page errorPage="error_page.jsp" %>
+<%@ page import="com.tech.blog.entities.User" %>
+<%
+    User user = (User) session.getAttribute("currentUser");
+    if (user == null) {
+        response.sendRedirect("login_page.jsp");
+    }
+%>
 <nav class="navbar navbar-expand-lg navbar-light primary-background">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.jsp"><span class="fa fa-bullhorn"></span>TechBlog</a>
@@ -31,15 +37,21 @@
         <li class="nav-item">
           <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">More</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="register_page.jsp" tabindex="-1" aria-disabled="true"><span class="glyphicon glyphicon-user"></span>Register</a>
-        </li>
+        
         
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      
+      <ul class="navbar-nav mr-right">
+      	 <li class="nav-item">
+          <a class="nav-link" href="register_page.jsp" tabindex="-1" aria-disabled="true"><span class="fa fa-user-circle"></span><%=user.getName() %></a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="LogoutServlet" tabindex="-1" aria-disabled="true"><span class="fa fa-user-plus"></span>Logout</a>
+        </li>
+      
+      </ul>
+      
+      
     </div>
   </div>
 </nav>
