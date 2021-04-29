@@ -2,10 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page errorPage="error_page.jsp" %>
-<%@ page import="com.tech.blog.entities.User" %>
+<%@ page import="com.tech.blog.entities.User, com.tech.blog.entities.Message" %>
 <%
     User user = (User) session.getAttribute("currentUser");
     if (user == null) {
+    	Message msg = new Message("Unauthorized Access. Login To proceed", "danger", "alert-danger");
+    	session.setAttribute("msg", msg);
         response.sendRedirect("login_page.jsp");
     }
 %>

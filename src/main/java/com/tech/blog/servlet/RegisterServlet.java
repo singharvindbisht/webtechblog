@@ -8,11 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.tech.blog.dao.UserDao;
 import com.tech.blog.entities.User;
 import com.tech.blog.helper.ConnectionProvider;
-
+import com.tech.blog.entities.Message;
 /**
  * Servlet implementation class RegisterServlet
  */
@@ -37,11 +38,21 @@ public class RegisterServlet extends HttpServlet {
 			int result = userdao.saveUser(user);
 			if(result!=0)
 			{
-				out.println("success");
+				Message msg = new Message("Registered Successfully", "success", "alert-success");
+				HttpSession session = request.getSession();
+				session.setAttribute("isRegistered", true);
+				session.setAttribute("msg", msg);
+				response.sendRedirect("register_page.jsp");
 			}
-			else
-				out.println("failed");
-			System.out.println(name+" "+email+" "+password+" "+gender);
+			else {
+				Message msg = new Message("Email id is already in use...Try another", "error", "alert-danger");
+				HttpSession session = request.getSession();
+				session.setAttribute("isRegistered", false);
+				session.setAttribute("msg", msg);
+				response.sendRedirect("register_page.jsp");
+			}
+				
+			
 		}
 		
 	}

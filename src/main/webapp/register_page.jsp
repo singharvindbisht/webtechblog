@@ -34,6 +34,45 @@
 					
 				</div>
 				
+				<%
+						boolean bool = true;
+						boolean helper = true;
+						Object check = session.getAttribute("isRegistered");
+						if(check == null)
+						{
+							helper = false;
+							bool = false;
+						}
+						else
+						{
+							bool = (boolean)session.getAttribute("isRegistered");
+						}
+						
+						if(bool)
+						{					
+				%>
+						<div class="alert alert-success" role="alert">
+						   Registered Successfully
+						</div>
+				<%
+						session.removeAttribute("isRegistered");
+						}
+						else if(helper==true && bool==false)
+						{
+					
+				%>
+							
+						<div class="alert alert-danger" role="alert">
+						   Email id Already in use... Try another
+						</div>
+			
+				<%
+						session.removeAttribute("isRegistered");
+						}
+					
+				%>
+				
+				
 				<div class="card-body">
 					<form action="register_user" method="get">
 					  <div class="mb-3">
