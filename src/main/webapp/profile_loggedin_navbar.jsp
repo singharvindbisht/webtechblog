@@ -39,13 +39,16 @@
         <li class="nav-item">
           <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">More</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#add-post-modal" tabindex="-1" aria-disabled="true">Do Post</a>
+        </li>
         
         
       </ul>
       
       <ul class="navbar-nav mr-right">
       	 <li class="nav-item">
-          <a class="nav-link" href="register_page.jsp" tabindex="-1" aria-disabled="true"><span class="fa fa-user-circle"></span><%=user.getName() %></a>
+          <a class="nav-link" href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal" tabindex="-1" aria-disabled="true"><span class="fa fa-user-circle"></span><%=user.getName() %></a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="LogoutServlet" tabindex="-1" aria-disabled="true"><span class="fa fa-user-plus"></span>Logout</a>

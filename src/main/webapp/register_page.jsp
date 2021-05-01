@@ -37,15 +37,16 @@
 				<%
 						boolean bool = true;
 						boolean helper = true;
+						boolean helper2 = true;
 						Object check = session.getAttribute("isRegistered");
 						if(check == null)
 						{
-							helper = false;
 							bool = false;
 						}
 						else
 						{
 							bool = (boolean)session.getAttribute("isRegistered");
+							helper = false;
 						}
 						
 						if(bool)
@@ -57,7 +58,7 @@
 				<%
 						session.removeAttribute("isRegistered");
 						}
-						else if(helper==true && bool==false)
+						else if(helper==false && bool==false)
 						{
 					
 				%>

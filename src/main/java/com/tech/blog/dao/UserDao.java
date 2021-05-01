@@ -20,12 +20,13 @@ public class UserDao {
 		
 		try
 		{
-			String query = "insert into user(name, email, password, gender) values (?, ?, ?, ?)";
+			String query = "insert into user(name, email, password, gender, registered_on) values (?, ?, ?, ?, now())";
 			PreparedStatement stmt = con.prepareStatement(query);
 			stmt.setString(1, user.getName());
 			stmt.setString(2, user.getEmail());
 			stmt.setString(3, user.getPassword());
 			stmt.setString(4,  user.getGender());
+			
 			int result = stmt.executeUpdate();
 			if(result!=0)
 			{
@@ -63,6 +64,7 @@ public class UserDao {
 				user.setGender(res.getString("gender"));
 				user.setPassword(res.getString("password"));
 				user.setId(res.getInt("id"));
+				user.setDateTime(res.getString("registered_on"));
 				return user;
 			}
 			

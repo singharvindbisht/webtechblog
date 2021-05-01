@@ -7,6 +7,7 @@ public class User {
 	private String email;
 	private String password;
 	private String gender;
+	private String dateTime;
 	
 	public User() {
 		
@@ -18,6 +19,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.gender = gender;
+		dateTime = null;
 	}
 
 	public String getName() {
@@ -60,5 +62,14 @@ public class User {
 		this.gender = gender;
 	}
 
+	public String getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(String dateTime) {
+		this.dateTime = dateTime;
+	}
+
+	
 
 }
